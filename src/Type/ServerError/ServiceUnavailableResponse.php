@@ -1,6 +1,6 @@
 <?php
 
-namespace BinSoul\Net\Http\Response\Type\ClientError;
+namespace BinSoul\Net\Http\Response\Type\ServerError;
 
 use BinSoul\Net\Http\Message\Collection\HeaderCollection;
 use BinSoul\Net\Http\Response\Body;
