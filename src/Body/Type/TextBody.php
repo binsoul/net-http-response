@@ -25,6 +25,6 @@ class TextBody extends StreamBody
             $mediaType = new MediaType('text/plain; charset=utf-8');
         }
 
-        parent::__construct(new MemoryStream($string), $mediaType);
+        parent::__construct(new MemoryStream((string) $string), $mediaType);
     }
 }

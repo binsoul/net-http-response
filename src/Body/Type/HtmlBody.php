@@ -19,6 +19,8 @@ class HtmlBody extends TextBody
      */
     public function __construct($string, $charset = 'utf-8')
     {
-        parent::__construct($string, new MediaType('text/html; charset='.($charset != '' ? $charset : 'utf-8')));
+        $mediaType = new MediaType('text/html; charset='.($charset != '' ? $charset : 'utf-8'));
+
+        parent::__construct((string) $string, $mediaType);
     }
 }
