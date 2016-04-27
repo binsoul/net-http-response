@@ -4,10 +4,10 @@ declare (strict_types = 1);
 
 namespace BinSoul\Net\Http\Response\Type;
 
-use BinSoul\Bridge\Http\Message\Stream;
 use BinSoul\IO\Stream\Type\NullStream;
 use BinSoul\Net\Http\Message\Collection\HeaderCollection;
 use BinSoul\Net\Http\Message\Response;
+use BinSoul\Net\Http\Response\Body\StreamBody;
 
 /**
  * Represents responses in the HTTP status code range 100 to 199.
@@ -24,7 +24,7 @@ class InformationResponse extends Response
      */
     public function __construct(int $status, HeaderCollection $headers = null)
     {
-        parent::__construct(new Stream(new NullStream(), 'r'), $status, $this->buildHeaders($headers));
+        parent::__construct(new StreamBody(new NullStream()), $status, $this->buildHeaders($headers));
     }
 
     public function withStatus($code, $reasonPhrase = '')

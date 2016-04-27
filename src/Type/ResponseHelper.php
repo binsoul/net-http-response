@@ -39,8 +39,8 @@ trait ResponseHelper
             return $headers;
         }
 
-        $now = new \DateTime(null, new \DateTimeZone('UTC'));
-        $today = new \DateTime(null, new \DateTimeZone('UTC'));
+        $now = new \DateTime('now', new \DateTimeZone('UTC'));
+        $today = new \DateTime('now', new \DateTimeZone('UTC'));
         $today->setTime(0, 0, 0);
 
         return new HeaderCollection(
