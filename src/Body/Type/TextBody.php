@@ -1,5 +1,7 @@
 <?php
 
+declare (strict_types = 1);
+
 namespace BinSoul\Net\Http\Response\Body\Type;
 
 use BinSoul\IO\Stream\Type\MemoryStream;
@@ -19,12 +21,12 @@ class TextBody extends StreamBody
      * @param string         $string
      * @param MediaType|null $mediaType
      */
-    public function __construct($string, MediaType $mediaType = null)
+    public function __construct(string $string, MediaType $mediaType = null)
     {
         if ($mediaType === null) {
             $mediaType = new MediaType('text/plain; charset=utf-8');
         }
 
-        parent::__construct(new MemoryStream((string) $string), $mediaType);
+        parent::__construct(new MemoryStream($string), $mediaType);
     }
 }

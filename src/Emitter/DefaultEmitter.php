@@ -1,5 +1,7 @@
 <?php
 
+declare (strict_types = 1);
+
 namespace BinSoul\Net\Http\Response\Emitter;
 
 use BinSoul\Net\Http\Response\Body;
@@ -128,7 +130,7 @@ class DefaultEmitter implements Emitter
      *
      * @return bool
      */
-    private function isAllowedToEmitHeader($header, ResponseInterface $response)
+    private function isAllowedToEmitHeader(string $header, ResponseInterface $response)
     {
         $entityHeaders = [
             'allow',
@@ -177,7 +179,7 @@ class DefaultEmitter implements Emitter
      *
      * @return string
      */
-    private function formatTimestamp($timeStamp)
+    private function formatTimestamp(int $timeStamp): string
     {
         $time = new \DateTime();
         $time->setTimestamp($timeStamp);

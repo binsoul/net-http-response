@@ -1,5 +1,7 @@
 <?php
 
+declare (strict_types = 1);
+
 namespace BinSoul\Net\Http\Response\Type;
 
 use BinSoul\Net\Http\Message\Collection\HeaderCollection;
@@ -20,7 +22,7 @@ class SuccessResponse extends Response
      * @param Body|null             $body
      * @param HeaderCollection|null $headers
      */
-    public function __construct($status, Body $body = null, HeaderCollection $headers = null)
+    public function __construct(int $status, Body $body = null, HeaderCollection $headers = null)
     {
         parent::__construct($this->buildBody($body), $status, $this->buildHeaders($headers));
     }

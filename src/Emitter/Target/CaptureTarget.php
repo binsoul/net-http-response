@@ -1,5 +1,7 @@
 <?php
 
+declare (strict_types = 1);
+
 namespace BinSoul\Net\Http\Response\Emitter\Target;
 
 use BinSoul\Net\Http\Response\Body;
@@ -12,9 +14,9 @@ use Psr\Http\Message\StreamInterface;
 class CaptureTarget implements Target
 {
     /** @var string[] */
-    private $headers;
+    private $headers = [];
     /** @var string */
-    private $body;
+    private $body = '';
 
     public function beginOutput()
     {
@@ -24,7 +26,7 @@ class CaptureTarget implements Target
     {
     }
 
-    public function outputHeader($header)
+    public function outputHeader(string $header)
     {
         $this->headers[] = $header;
     }
@@ -37,7 +39,7 @@ class CaptureTarget implements Target
     /**
      * @return string[]
      */
-    public function getHeaders()
+    public function getHeaders(): array
     {
         return $this->headers;
     }
@@ -47,7 +49,7 @@ class CaptureTarget implements Target
      *
      * @return bool
      */
-    public function hasHeader($headerLine)
+    public function hasHeader($headerLine): bool
     {
         foreach ($this->headers as $header) {
             if ($header == $headerLine) {
@@ -61,7 +63,7 @@ class CaptureTarget implements Target
     /**
      * @return string
      */
-    public function getBody()
+    public function getBody(): string
     {
         return $this->body;
     }

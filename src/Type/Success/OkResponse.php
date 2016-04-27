@@ -1,5 +1,7 @@
 <?php
 
+declare (strict_types = 1);
+
 namespace BinSoul\Net\Http\Response\Type\Success;
 
 use BinSoul\Net\Http\Response\Body;

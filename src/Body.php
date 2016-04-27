@@ -1,5 +1,7 @@
 <?php
 
+declare (strict_types = 1);
+
 namespace BinSoul\Net\Http\Response;
 
 use BinSoul\IO\Stream\Stream;
@@ -15,7 +17,7 @@ interface Body extends StreamInterface
      *
      * @return string
      */
-    public function getContentType();
+    public function getContentType(): string;
 
     /**
      * Returns the content disposition.
@@ -36,7 +38,7 @@ interface Body extends StreamInterface
      *
      * @return string
      */
-    public function getEtag();
+    public function getEtag(): string;
 
     /**
      * Appends all data to the given stream.
@@ -45,5 +47,5 @@ interface Body extends StreamInterface
      *
      * @return bool
      */
-    public function appendTo(Stream $stream);
+    public function appendTo(Stream $stream): bool;
 }

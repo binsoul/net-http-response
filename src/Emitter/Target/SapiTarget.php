@@ -1,5 +1,7 @@
 <?php
 
+declare (strict_types = 1);
+
 namespace BinSoul\Net\Http\Response\Emitter\Target;
 
 use BinSoul\IO\Stream\AccessMode;
@@ -30,7 +32,7 @@ class SapiTarget implements Target
      * @param int  $maxBufferLevel
      * @param bool $useOutputStream
      */
-    public function __construct($finishResponse = true, $maxBufferLevel = 0, $useOutputStream = true)
+    public function __construct(bool $finishResponse = true, int $maxBufferLevel = 0, bool $useOutputStream = true)
     {
         $this->finishResponse = $finishResponse;
         $this->maxBufferLevel = $maxBufferLevel;
@@ -72,7 +74,7 @@ class SapiTarget implements Target
         }
     }
 
-    public function outputHeader($header)
+    public function outputHeader(string $header)
     {
         header($header, true);
     }

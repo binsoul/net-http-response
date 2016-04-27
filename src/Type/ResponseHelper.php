@@ -1,5 +1,7 @@
 <?php
 
+declare (strict_types = 1);
+
 namespace BinSoul\Net\Http\Response\Type;
 
 use BinSoul\IO\Stream\Type\MemoryStream;
@@ -17,7 +19,7 @@ trait ResponseHelper
      *
      * @return string
      */
-    protected function formatTimestamp($timeStamp)
+    protected function formatTimestamp(int $timeStamp): string
     {
         $time = new \DateTime();
         $time->setTimestamp($timeStamp);
@@ -72,7 +74,7 @@ trait ResponseHelper
      * @param int    $maximalCode
      * @param string $responseType
      */
-    protected function assertRange($statusCode, $minimalCode, $maximalCode, $responseType)
+    protected function assertRange(int $statusCode, int $minimalCode, int $maximalCode, string $responseType)
     {
         if ($statusCode < $minimalCode || $statusCode > $maximalCode) {
             throw new \InvalidArgumentException(

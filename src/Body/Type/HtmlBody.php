@@ -1,5 +1,7 @@
 <?php
 
+declare (strict_types = 1);
+
 namespace BinSoul\Net\Http\Response\Body\Type;
 
 use BinSoul\Net\MediaType;
@@ -17,10 +19,10 @@ class HtmlBody extends TextBody
      * @param string $string
      * @param string $charset
      */
-    public function __construct($string, $charset = 'utf-8')
+    public function __construct(string $string, string $charset = 'utf-8')
     {
         $mediaType = new MediaType('text/html; charset='.($charset != '' ? $charset : 'utf-8'));
 
-        parent::__construct((string) $string, $mediaType);
+        parent::__construct($string, $mediaType);
     }
 }

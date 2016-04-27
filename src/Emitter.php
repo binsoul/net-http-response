@@ -1,5 +1,7 @@
 <?php
 
+declare (strict_types = 1);
+
 namespace BinSoul\Net\Http\Response;
 
 use BinSoul\Net\Http\Response\Emitter\Target;

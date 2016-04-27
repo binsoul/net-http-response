@@ -24,7 +24,7 @@ interface Target
      *
      * @param string $header
      */
-    public function outputHeader($header);
+    public function outputHeader(string $header);
 
     /**
      * Outputs the response body.

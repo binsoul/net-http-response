@@ -1,5 +1,7 @@
 <?php
 
+declare (strict_types = 1);
+
 namespace BinSoul\Net\Http\Response\Body;
 
 use BinSoul\Bridge\Http\Message\StreamDecorator;
@@ -12,7 +14,7 @@ trait BodyDecorator
 {
     use StreamDecorator;
 
-    public function getContentType()
+    public function getContentType(): string
     {
         return $this->decoratedObject->getContentType();
     }
@@ -27,12 +29,12 @@ trait BodyDecorator
         return $this->decoratedObject->getLastModified();
     }
 
-    public function getEtag()
+    public function getEtag(): string
     {
         return $this->decoratedObject->getEtag();
     }
 
-    public function appendTo(Stream $stream)
+    public function appendTo(Stream $stream): bool
     {
         return $this->decoratedObject->appendTo($stream);
     }

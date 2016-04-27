@@ -74,7 +74,7 @@ class DefaultEmitterTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals('HTTP/1.1 304 Not Modified', $target->getHeaders()[0]);
         $this->assertEquals('foo: bar', $target->getHeaders()[1]);
-        $this->assertNull($target->getBody());
+        $this->assertEquals('', $target->getBody());
         $this->assertFalse($target->hasHeader('Content-Length: 1'));
     }
 

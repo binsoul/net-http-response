@@ -1,5 +1,7 @@
 <?php
 
+declare (strict_types = 1);
+
 namespace BinSoul\Net\Http\Response\Body;
 
 use BinSoul\Bridge\Http\Message\Stream;
@@ -31,7 +33,7 @@ class StreamBody extends Stream implements Body
         }
     }
 
-    public function getContentType()
+    public function getContentType(): string
     {
         return (string) $this->mediaType;
     }
@@ -48,7 +50,7 @@ class StreamBody extends Stream implements Body
         return isset($stat['mtime']) ? $stat['mtime'] : null;
     }
 
-    public function getEtag()
+    public function getEtag(): string
     {
         $defaults = [
             'mtime' => time(),
@@ -64,7 +66,7 @@ class StreamBody extends Stream implements Body
         return md5($stat['mtime'].'-'.$stat['ino'].'-'.$stat['size']);
     }
 
-    public function appendTo(IoStream $stream)
+    public function appendTo(IoStream $stream): bool
     {
         return $this->stream->appendTo($stream);
     }

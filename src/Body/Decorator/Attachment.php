@@ -1,5 +1,7 @@
 <?php
 
+declare (strict_types = 1);
+
 namespace BinSoul\Net\Http\Response\Body\Decorator;
 
 use BinSoul\Net\Http\Response\Body;
@@ -21,13 +23,13 @@ class Attachment implements Body
      * @param Body   $decorated
      * @param string $attachmentName
      */
-    public function __construct(Body $decorated, $attachmentName)
+    public function __construct(Body $decorated, string $attachmentName)
     {
         $this->setDecoratedObject($decorated);
         $this->attachmentName = $attachmentName;
     }
 
-    public function getContentDisposition()
+    public function getContentDisposition(): string
     {
         return 'attachment; filename="'.$this->attachmentName.'"';
     }

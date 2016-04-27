@@ -1,5 +1,7 @@
 <?php
 
+declare (strict_types = 1);
+
 namespace BinSoul\Net\Http\Response\Type\ServerError;
 
 use BinSoul\Net\Http\Message\Collection\HeaderCollection;

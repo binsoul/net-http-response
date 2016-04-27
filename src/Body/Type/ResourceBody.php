@@ -1,5 +1,7 @@
 <?php
 
+declare (strict_types = 1);
+
 namespace BinSoul\Net\Http\Response\Body\Type;
 
 use BinSoul\IO\Stream\Type\ResourceStream;
@@ -20,7 +22,7 @@ class ResourceBody extends StreamBody
      * @param string         $uri
      * @param MediaType|null $mediaType
      */
-    public function __construct($uri, MediaType $mediaType = null)
+    public function __construct(string $uri, MediaType $mediaType = null)
     {
         if ($mediaType === null) {
             $mediaType = MediaType::fromFile($uri, true);

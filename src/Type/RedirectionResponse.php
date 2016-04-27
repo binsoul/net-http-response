@@ -1,5 +1,7 @@
 <?php
 
+declare (strict_types = 1);
+
 namespace BinSoul\Net\Http\Response\Type;
 
 use BinSoul\Bridge\Http\Message\Stream;
@@ -20,7 +22,7 @@ class RedirectionResponse extends Response
      * @param int                   $status
      * @param HeaderCollection|null $headers
      */
-    public function __construct($status, HeaderCollection $headers = null)
+    public function __construct(int $status, HeaderCollection $headers = null)
     {
         parent::__construct(new Stream(new NullStream(), 'r'), $status, $this->buildHeaders($headers));
     }
